@@ -1,6 +1,6 @@
-const inquirer = require("inquirer");
-const db = require("./db");
-require("console.table");
+const inquirer = require("inquirer"); // Importing inquirer using CommonJS syntax
+const db = require("./db"); // Ensure that the path to your db module is correct
+require("console.table"); // Make sure your environment supports console.table
 
 const exit = () => {
   console.log("Bye!");
@@ -33,30 +33,6 @@ const mainMenu = async () => {
   ]);
 
   answer.menu();
-
-  //   switch (answer.menu) {
-  //     case "View all departments":
-  //       return viewDepartments();
-  //     case "View all roles":
-  //       return viewRoles();
-  //     case "View all employees":
-  //       return viewEmployees();
-  //     case "Add a department":
-  //       return addDepartment();
-  //     case "Add a role":
-  //       return addRole();
-  //     case "Add an employee":
-  //       return addEmployee();
-  //     case "Update an employee role":
-  //       return updateEmployeeRole();
-  //     case "Update employee manager":
-  //       return updateEmployeeManager();
-  //     case "View employees by manager":
-  //       return viewByManager();
-  //     case "Exit":
-  //       console.log("Bye!");
-  //       break;
-  //   }
 };
 
 function viewDepartments() {
@@ -135,8 +111,6 @@ const addRole = async () => {
       choices: departmentChoices,
     },
   ]);
-  // console.log("answer", answer);
-  // console.log("answer.name", answer.name);
 
   db.addARole(answer.name, answer.salary, answer.department).then(() => {
     db.findAllRoles().then(([rows]) => {
@@ -159,7 +133,6 @@ const addEmployee = async () => {
   }));
   console.log(roleChoices);
 
-  //   immutability
   const [rowsB] = await db.findAllEmployees();
   const employeeChoices = rowsB.map(mapEmployeeChoices);
   console.log(employeeChoices);
@@ -264,11 +237,7 @@ const updateEmployeeManager = async () => {
     name: `${first_name} ${last_name}`,
     value: id
   }));
-  //   update manager choices, not immutable
   managerChoices.push({ name: "No manager selected", value: null });
-  //   renaming destructured property manager as data
-  //   const {manager:data} = await inquirer.prompt([
-  //   destructuring property and defining as variable
   const { manager } = await inquirer.prompt([
     {
       type: "list",
@@ -337,9 +306,6 @@ const deleteDepartment = async () => {
       choices: departmentChoices,
     },
   ]);
-  //   const [updatedDepartments] = await db.deleteADepartment(department);
-  //   console.table(updatedDepartments);
-  //   return mainMenu();
 
   db.deleteADepartment(department).then(() => {
     db.findAllDepartments().then(([rows]) => {
