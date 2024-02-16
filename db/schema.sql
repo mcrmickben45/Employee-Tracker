@@ -1,5 +1,9 @@
-DROP DATABASE IF EXISTS company;
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Pinkpoppies#1';
+SELECT user, host, plugin FROM mysql.user WHERE user = 'root';
 
+
+
+DROP DATABASE IF EXISTS company;
 CREATE DATABASE company;
 USE company;
 
