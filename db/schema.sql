@@ -1,6 +1,6 @@
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Pinkpoppies#1';
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_password';
 SELECT user, host, plugin FROM mysql.user WHERE user = 'root';
-
+SHOW GRANTS FOR 'root'@'localhost';
 
 
 DROP DATABASE IF EXISTS company;
