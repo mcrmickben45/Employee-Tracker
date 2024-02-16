@@ -30,6 +30,7 @@ This Employee Tracker was created by Ben McCormick under the guidelines provided
 
 ## Images
 
+<img width="634" alt="Screenshot 2024-02-15 at 6 50 02 PM" src="https://github.com/mcrmickben45/Employee-Tracker/assets/137113252/b01dc0b2-b23e-41f7-908c-6ba67e251431">
 
 ## License
 The MIT License (MIT)
